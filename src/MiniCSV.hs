@@ -13,11 +13,11 @@ module MiniCSV (
 -------------------------------------------------------------------------------
 
 csvEncodeTable :: [[String]] -> String
-csvEncodeTable = concatMap csvEncodeRow
+csvEncodeTable = concatMap (\r -> csvEncodeRow r ++ "\r\n")
 
 csvEncodeRow :: [String] -> String
 csvEncodeRow []     = ""
-csvEncodeRow [x]    = csvEncodeField x ++ "\r\n"
+csvEncodeRow [x]    = csvEncodeField x
 csvEncodeRow (x:xs) = csvEncodeField x ++ "," ++ csvEncodeRow xs
 
 csvEncodeField :: String -> String
