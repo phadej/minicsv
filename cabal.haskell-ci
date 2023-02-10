@@ -1,0 +1,2 @@
+branches: master
+tests: >=7.4

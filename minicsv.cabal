@@ -1,0 +1,59 @@
+cabal-version: 2.4
+name:          minicsv
+version:       0.1
+author:        Oleg Grenrus <oleg.grenrus@iki.fi>
+maintainer:    Oleg Grenrus <oleg.grenrus@iki.fi>
+category:      Data, CSV
+synopsis:      Very minimal CSV library
+description:
+  Very minimal CSV library
+  .
+  @
+  csvEncodeTable :: [[String]] -> String
+  csvDecodeTable :: String -> [[String]]
+  @
+  .
+  is (almost) all you get.
+
+license:       BSD-3-Clause
+license-file:  LICENSE
+tested-with:
+  GHC ==7.0.4
+   || ==7.2.2
+   || ==7.4.2
+   || ==7.6.3
+   || ==7.8.4
+   || ==7.10.3
+   || ==8.0.2
+   || ==8.2.2
+   || ==8.4.4
+   || ==8.6.5
+   || ==8.8.4
+   || ==8.10.7
+   || ==9.0.2
+   || ==9.2.5
+   || ==9.4.4
+
+library
+  default-language: Haskell2010
+  ghc-options:      -Wall
+  hs-source-dirs:   src
+  exposed-modules:  MiniCSV
+  build-depends:    base >=4.3 && <5
+
+test-suite minicsv-tests
+  default-language: Haskell2010
+  type:             exitcode-stdio-1.0
+  main-is:          minicsv-tests.hs
+  hs-source-dirs:   tests
+  build-depends:
+    , base
+    , minicsv
+
+  build-depends:
+    , bytestring
+    , cassava
+    , QuickCheck
+    , tasty
+    , tasty-quickcheck
+    , text
